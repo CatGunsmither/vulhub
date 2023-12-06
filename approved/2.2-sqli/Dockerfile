@@ -1,7 +1,5 @@
 FROM php:7.1-apache
 
-LABEL maintainer="phithon <root@leavesongs.com>"
-
 RUN set -ex \
     && apt-get update && apt-get install -y \
         libfreetype6-dev \
@@ -20,6 +18,7 @@ RUN set -ex \
     && cd /var/www/html \
     && curl -sSL https://github.com/magento/magento2/archive/2.2.7.tar.gz | tar xvz --strip-components=1 \
     && curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename composer \
+    && composer update -W \
     && composer install \
     && chown www-data:www-data -R . \
     && a2enmod rewrite

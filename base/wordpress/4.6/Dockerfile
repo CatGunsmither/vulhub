@@ -1,7 +1,5 @@
 FROM vulhub/httpd:bad-http
 
-LABEL maintainer="phithon <root@leavesongs.com>"
-
 RUN set -ex; \
     mkdir -p /usr/src/wordpress; \
     wget -qO- https://github.com/WordPress/WordPress/archive/4.6.tar.gz | \
