@@ -1,7 +1,5 @@
 # YApi Registration and Mock Remote Code Execution
 
-[中文版本(Chinese version)](README.zh-cn.md)
-
 YApi is a API management tool developed by Node.JS. If registration of the YApi server is enabled, attackers will be able to execute arbitrary Javascript code in the Mock page.
 
 References:

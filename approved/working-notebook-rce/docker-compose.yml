@@ -1,7 +1,9 @@
 version: '2'
 services:
  web:
-   image: vulhub/jupyter-notebook:5.2.2
+   build: 
+    context: .
+    dockerfile: ./Dockerfile 
    command: start-notebook.sh --NotebookApp.token=''
    ports:
     - "8888:8888"
